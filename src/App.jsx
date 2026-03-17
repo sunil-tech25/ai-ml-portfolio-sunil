@@ -126,7 +126,7 @@ export default function App() {
               SUNIL KUMAR
             </h2>
             <h1 className="font-display text-4xl font-semibold leading-tight md:text-6xl">
-  AI / ML Engineer | LLM & Agentic AI Developer
+  AI / ML Engineer 
 </h1>
 
 <p className="max-w-xl text-lg text-white/70">
