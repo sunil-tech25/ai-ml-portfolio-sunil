@@ -126,11 +126,12 @@ export default function App() {
               SUNIL KUMAR
             </h2>
             <h1 className="font-display text-4xl font-semibold leading-tight md:text-6xl">
-              AI/ML ENGINEER &amp; LLM BUILDER
-            </h1>
-            <p className="max-w-xl text-lg text-white/70">
-              SPECIALIZING IN RAG PIPELINES, AGENTIC AI SYSTEMS, AND COMPUTER VISION
-            </p>
+  AI / ML Engineer | LLM & Agentic AI Developer
+</h1>
+
+<p className="max-w-xl text-lg text-white/70">
+  Building production-ready AI systems using RAG, LLMs, and automation workflows
+</p>
             <div className="grid gap-3 sm:grid-cols-3">
               {stats.map((stat) => (
                 <div
