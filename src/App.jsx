@@ -2,60 +2,81 @@ import { useState } from 'react';
 
 const skillCategories = [
   {
-    label: 'PROGRAMMING & FRAMEWORKS',
-    items: ['PYTHON / FASTAPI', 'LANGCHAIN', 'LANGGRAPH']
+    label: 'PROGRAMMING (PYTHON)',
+    items: ['PYTHON', 'ADVANCED PYTHON (ASYNCIO, TYPING)', 'DATA PIPELINES']
   },
   {
-    label: 'MACHINE LEARNING & DEEP LEARNING',
-    items: ['PYTORCH', 'TENSORFLOW', 'KERAS', 'HUGGINGFACE']
+    label: 'BACKEND (FASTAPI)',
+    items: ['FASTAPI', 'REST / WEBSOCKETS', 'AUTH & RBAC']
   },
   {
-    label: 'COMPUTER VISION',
-    items: ['OPENCV', 'YOLO']
+    label: 'DATABASES (MYSQL, MONGODB)',
+    items: ['MYSQL', 'MONGODB', 'SCHEMA DESIGN']
   },
   {
-    label: 'NLP & LLMS',
-    items: ['LARGE LANGUAGE MODELS (LLMS)', 'TRANSFORMERS', 'PROMPT ENGINEERING']
+    label: 'VECTOR DATABASES (FAISS, PINECONE)',
+    items: ['FAISS', 'PINECONE', 'HYBRID SEARCH']
   },
   {
-    label: 'VECTOR DATABASES & SEARCH',
-    items: ['VECTOR DATABASES (FAISS, PINECONE)']
+    label: 'MACHINE LEARNING',
+    items: ['FEATURE ENGINEERING', 'MODEL EVALUATION', 'MLOPS BASICS']
   },
   {
-    label: 'DATABASES',
-    items: ['MONGODB / MYSQL']
+    label: 'DEEP LEARNING',
+    items: ['PYTORCH', 'TENSORFLOW', 'MODEL OPTIMIZATION']
   },
   {
-    label: 'DEPLOYMENT & TOOLS',
-    items: ['DOCKER', 'STREAMLIT', 'GRADIO', 'CLOUD (AWS BASICS)']
+    label: 'NLP',
+    items: ['TRANSFORMERS', 'TEXT CLASSIFICATION', 'ENTITY & INTENT MODELS']
+  },
+  {
+    label: 'LLMS',
+    items: ['RAG SYSTEMS', 'AGENT ORCHESTRATION', 'PROMPT & EVALS']
   }
 ];
 
 const projects = [
   {
     title: 'ENTERPRISE RAG CHATBOT',
-    description: 'Multi-tenant document QA system with secure retrieval, role-based access, and adaptive ranking.',
-    tags: ['RAG', 'LANGCHAIN', 'FASTAPI'],
-    metrics: ['92% RAG ACCURACY', '3X LATENCY REDUCTION', '1M+ DOC CHUNKS INDEXED']
+    description:
+      'Secure document QA for policy and knowledge bases with adaptive ranking.',
+    tags: ['RAG', 'FASTAPI', 'LLM OPS'],
+    metrics: ['92% ANSWER ACCURACY', '650MS P95 LATENCY', '1.3M DOC CHUNKS'],
+    impact: 'CUT RESOLUTION TIME BY 41%.',
+    flow: [
+      'DOCUMENT INGESTION',
+      'CHUNKING + EMBEDDINGS',
+      'FAISS / PINECONE SEARCH',
+      'RERANKING',
+      'LLM RESPONSE',
+      'AUDIT LOGGING'
+    ]
   },
   {
     title: 'DEFECT DETECTION CV SYSTEM',
-    description: 'Real-time detection pipeline using YOLO + OpenCV with automated alerting and QA dashboards.',
-    tags: ['YOLO', 'OPENCV', 'COMPUTER VISION'],
-    metrics: ['97% PRECISION', '35 FPS INFERENCE', 'LIVE EDGE DEPLOYMENT']
+    description:
+      'Real-time defect detection with alerts, QA dashboards, and edge deployment.',
+    tags: ['YOLO', 'OPENCV', 'EDGE'],
+    metrics: ['97% PRECISION', '35 FPS INFERENCE', '120MS END-TO-END'],
+    impact: 'REDUCED REWORK BY EARLY DEFECT FLAGGING.',
+    flow: ['CAMERA STREAM', 'PREPROCESSING', 'YOLO INFERENCE', 'DEFECT SCORING', 'ALERTS + DASHBOARD']
   },
   {
     title: 'AGENTIC AUTOMATION SUITE',
-    description: 'Multi-agent AI system orchestrating tools, workflows, and autonomous tasks across teams.',
-    tags: ['AGENTIC AI', 'TOOLS', 'WORKFLOWS'],
-    metrics: ['40% OPS TIME SAVED', '24/7 AGENT COVERAGE', 'HUMAN-IN-LOOP CONTROLS']
+    description:
+      'Multi-agent system orchestrating tools, workflows, and approvals.',
+    tags: ['AGENTS', 'TOOLS', 'WORKFLOWS'],
+    metrics: ['40% OPS TIME SAVED', '24/7 COVERAGE', 'AUDITABLE ACTIONS'],
+    impact: 'AUTOMATED REPEATABLE TASKS WITH HUMAN-IN-LOOP.',
+    flow: ['TASK ROUTING', 'TOOL CALLS', 'POLICY CHECKS', 'HUMAN APPROVAL', 'EXECUTION', 'REPORTING']
   },
   {
     title: 'AI REVENUE ENGINE',
     description:
-      'Intelligent pricing system combining ML demand prediction with LLM-powered explanations for dynamic revenue optimization.',
+      'Pricing system combining ML demand prediction with LLM explanations.',
     tags: ['FASTAPI', 'PANDAS', 'ML', 'LLM'],
-    metrics: ['DYNAMIC PRICING AUTOMATION', 'LLM-POWERED EXPLANATIONS', 'REAL-TIME DEMAND PREDICTION'],
+    metrics: ['12% REVENUE LIFT', 'REAL-TIME DEMAND PREDICTION', 'EXPLAINABLE PRICING'],
+    impact: 'IMPROVED PRICE ACCEPTANCE WITH TRACEABLE JUSTIFICATIONS.',
     flow: [
       'USER/API REQUEST',
       'FASTAPI BACKEND',
@@ -69,9 +90,23 @@ const projects = [
 ];
 
 const stats = [
-  '5+ AI PRODUCTS SHIPPED',
-  '3X LATENCY REDUCTION',
-  '92% RAG ACCURACY'
+  'PRODUCTION AI SYSTEMS',
+  'P95 LATENCY < 700MS',
+  'MEASURABLE IMPACT'
+];
+
+const caseStudy = {
+  title: 'CASE STUDY — ENTERPRISE RAG CHATBOT',
+  problem: 'Support teams lost time searching policies and wikis, causing inconsistent answers.',
+  approach:
+    'Built secure RAG with hybrid search, reranking, citations, RBAC, and audit logging.',
+  results: ['92% ANSWER ACCURACY', 'P95 LATENCY 650MS', '41% FASTER RESOLUTION']
+};
+
+const buildingNow = [
+  'AGENT WORKFLOWS FOR OPERATIONS',
+  'VOICE AI FOR SUPPORT TRIAGE',
+  'LLM PIPELINES WITH EVALS'
 ];
 
 export default function App() {
@@ -120,18 +155,24 @@ export default function App() {
         <section className="mx-auto flex min-h-screen max-w-6xl flex-col justify-center gap-10 bg-black px-5 pb-20 pt-36 sm:px-6 md:flex-row md:items-center md:gap-12 md:pb-24 md:pt-40">
           <div className="flex-1 space-y-6">
             <div className="inline-flex items-center gap-3 rounded-full border border-neonOrange/40 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-neonOrange">
-              AVAILABLE FOR DUBAI RELOCATION
+              AVAILABLE FOR FULL-TIME + FREELANCE
             </div>
             <h2 className="text-xl font-semibold uppercase tracking-[0.25em] text-neonOrange">
               SUNIL KUMAR
             </h2>
             <h1 className="font-display text-4xl font-semibold leading-tight md:text-6xl">
-  AI / ML Engineer 
-</h1>
+              AI / ML ENGINEER
+            </h1>
 
-<p className="max-w-xl text-lg text-white/70">
-  Building production-ready AI systems using RAG, LLMs, and automation workflows
-</p>
+            <p className="max-w-xl text-lg text-white/70">
+              I build production AI systems—RAG copilots, agent automation, and LLM pipelines—measured for accuracy,
+              latency, and business impact.
+            </p>
+            <div className="flex flex-wrap gap-3 text-[11px] font-semibold uppercase tracking-[0.25em] text-white/70">
+              <span className="rounded-full border border-white/15 bg-white/5 px-4 py-2">RAG SYSTEMS</span>
+              <span className="rounded-full border border-white/15 bg-white/5 px-4 py-2">AGENT WORKFLOWS</span>
+              <span className="rounded-full border border-white/15 bg-white/5 px-4 py-2">LLM AUTOMATION</span>
+            </div>
             <div className="grid gap-3 sm:grid-cols-3">
               {stats.map((stat) => (
                 <div
@@ -241,22 +282,78 @@ export default function App() {
                     </div>
                   ))}
                 </div>
+                <div className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-neonOrange/80">
+                  IMPACT: {project.impact}
+                </div>
                 {project.flow && (
                   <div className="mt-6 rounded-2xl border border-white/10 bg-black/40 p-4">
-                    <div className="space-y-2">
+                    <div className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/50">
+                      ARCHITECTURE FLOW
+                    </div>
+                    <div className="mt-3 flex flex-wrap items-center gap-2">
                       {project.flow.map((step, index) => (
-                        <div key={step} className="flex flex-col items-center">
-                          <div className="w-full rounded-full border border-white/10 bg-[#111] px-4 py-2 text-center text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70">
+                        <div key={step} className="flex items-center gap-2">
+                          <div className="rounded-full border border-white/10 bg-[#111] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70">
                             {step}
                           </div>
                           {index < project.flow.length - 1 && (
-                            <div className="text-neonOrange text-xs leading-none">↓</div>
+                            <span className="text-neonOrange text-xs leading-none">→</span>
                           )}
                         </div>
                       ))}
                     </div>
                   </div>
                 )}
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section id="case-study" className="mx-auto max-w-6xl bg-[#0A0A0A] px-5 pb-20 sm:px-6 md:pb-24">
+          <div className="flex items-center justify-between">
+            <h2 className="font-display text-3xl uppercase tracking-[0.2em]">CASE STUDY</h2>
+            <span className="text-xs uppercase tracking-[0.3em] text-white/50">ONE DEEP DIVE</span>
+          </div>
+          <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
+            <div className="text-sm font-semibold uppercase tracking-[0.3em] text-neonOrange">{caseStudy.title}</div>
+            <div className="mt-6 grid gap-6 lg:grid-cols-3">
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-[0.25em] text-white/50">PROBLEM</div>
+                <p className="mt-3 text-sm text-white/70">{caseStudy.problem}</p>
+              </div>
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-[0.25em] text-white/50">APPROACH</div>
+                <p className="mt-3 text-sm text-white/70">{caseStudy.approach}</p>
+              </div>
+              <div>
+                <div className="text-xs font-semibold uppercase tracking-[0.25em] text-white/50">RESULTS</div>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {caseStudy.results.map((result) => (
+                    <div
+                      key={result}
+                      className="rounded-full border border-neonBlue/30 bg-white/5 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-white/80"
+                    >
+                      {result}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="building" className="mx-auto max-w-6xl bg-black px-5 pb-20 sm:px-6 md:pb-24">
+          <div className="flex items-center justify-between">
+            <h2 className="font-display text-3xl uppercase tracking-[0.2em]">CURRENTLY BUILDING</h2>
+            <span className="text-xs uppercase tracking-[0.3em] text-white/50">IN PROGRESS</span>
+          </div>
+          <div className="mt-8 grid gap-6 sm:grid-cols-3">
+            {buildingNow.map((item) => (
+              <div
+                key={item}
+                className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 via-white/5 to-neonBlue/10 p-6 text-xs font-semibold uppercase tracking-[0.25em] text-white/80 shadow-[0_0_20px_rgba(92,200,255,0.12)]"
+              >
+                {item}
               </div>
             ))}
           </div>
@@ -276,10 +373,10 @@ export default function App() {
               <div className="text-xs uppercase tracking-[0.3em] text-neonOrange">2025 – PRESENT</div>
             </div>
             <ul className="mt-6 space-y-3 text-sm text-white/70">
-              <li>BUILT PRODUCTION RAG PIPELINES AND AI SYSTEMS.</li>
-              <li>DEVELOPED LLM-BASED ASSISTANTS.</li>
-              <li>INTEGRATED APIS AND AUTOMATION WORKFLOWS.</li>
-              <li>WORKED ON REAL-TIME AI APPLICATIONS.</li>
+              <li>BUILT AND DEPLOYED RAG SYSTEMS WITH EVALS, CITATIONS, AND ACCESS CONTROL.</li>
+              <li>OPTIMIZED RETRIEVAL + INFERENCE LATENCY FOR PRODUCTION TRAFFIC.</li>
+              <li>DELIVERED AGENTIC AUTOMATION WORKFLOWS WITH AUDITABLE TOOL CALLS.</li>
+              <li>INTEGRATED LLM FEATURES INTO EXISTING PRODUCTS WITH RELIABLE MONITORING.</li>
             </ul>
           </div>
         </section>
@@ -300,10 +397,10 @@ export default function App() {
             <div className="flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
               <div className="max-w-2xl space-y-3">
                 <h2 className="font-display text-2xl uppercase tracking-[0.2em] md:text-3xl">
-                  OPEN TO OPPORTUNITIES IN DUBAI, UAE
+                  LET’S BUILD REAL-WORLD AI SYSTEMS
                 </h2>
                 <p className="text-sm uppercase tracking-[0.25em] text-white/60">
-                  FULL-TIME AI/ML ROLES • RELOCATION READY • AVAILABLE IMMEDIATELY
+                  AVAILABLE FOR FULL-TIME ROLES AND FREELANCE PROJECTS • FAST START
                 </p>
                 <p className="text-sm uppercase tracking-[0.25em] text-white/80">
                   SUNIL.BELIPAR@GMAIL.COM
